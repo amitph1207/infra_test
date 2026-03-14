@@ -1,5 +1,4 @@
-# Hello app: uses secret "hbn-user-password" synced by ESO from Vault.
-# Flow: Vault (value only) -> ESO -> K8s Secret -> this pod (env). Nothing in Git.
+# Hello app: uses Secret "my-db-secret" from SealedSecret (Sealed Secrets operator in main cluster).
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,9 +22,8 @@ spec:
         ports:
         - containerPort: 5678
         env:
-        # Secret comes from Vault via ESO (never stored in Git)
-        - name: HBN_PASSWORD
+        - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: hbn-user-password
+              name: my-db-secret
               key: password
