@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-test-argo
+  namespace: default   # same as your Argo CD install (argocd-* pods)
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/amitph1207/infra_test
+    path: argo
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false

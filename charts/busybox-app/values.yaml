@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: busybox
+  tag: "1.36"
+  pullPolicy: IfNotPresent
+
+command: ["sh", "-c", "while true; do echo hello from $(hostname); sleep 5; done"]
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    cpu: 50m
+    memory: 32Mi
+
+env:
+  MESSAGE: "hello-default"
+
+service:
+  enabled: false
+  port: 80

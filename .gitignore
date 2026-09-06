@@ -1,0 +1,4 @@
+# SOPS: never commit plain secret or private key
+age-key.txt
+*.agekey
+argo/secrets/hbn-user-password.yaml

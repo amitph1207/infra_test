@@ -1,0 +1,6 @@
+# SOPS config: encrypt secrets with age. Put your age PUBLIC key below (from age-keygen).
+# Generate key: age-keygen -o age-key.txt  (keep age-key.txt private, add pub key here)
+creation_rules:
+  - path_regex: argo/secrets/.*\.enc\.yaml$
+    age: >-
+      age1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

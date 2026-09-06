@@ -1,0 +1,7 @@
+replicaCount: 3
+env:
+  MESSAGE: "hello-from-prod"
+resources:
+  requests:
+    cpu: 50m
+    memory: 32Mi
