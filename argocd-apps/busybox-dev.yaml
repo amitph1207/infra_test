@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<your-username>/infra-test.git
+    repoURL: https://github.com/amitph1207/Infra_test.git
     targetRevision: main
     path: charts/busybox-app
     helm:
